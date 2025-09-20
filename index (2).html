@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Московский Политех - Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Шапка с меню */
+        header {
+            background-color: #0d4d8d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* Основное содержимое */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(rgba(13, 77, 141, 0.8), rgba(13, 77, 141, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #0d4d8d;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffd700;
+        }
+        
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .faculties {
+            margin-bottom: 3rem;
+        }
+        
+        .faculty-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .faculty-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .faculty-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .faculty-card-content {
+            padding: 1.5rem;
+        }
+        
+        .faculty-card h3 {
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 0.5rem;
+            color: #0d4d8d;
+        }
+        
+        /* Таблица */
+        .table-section {
+            margin-bottom: 3rem;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #0d4d8d;
+            color: white;
+            font-weight: 500;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #0d4d8d;
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка с меню -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2"/>
+                        <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2"/>
+                        <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Московский Политех</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">О вузе</a></li>
+                    <li><a href="#faculties">Факультеты</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main class="container">
+        <section class="hero">
+            <h1>Московский Политехнический Университет</h1>
+            <p>Образование, ориентированное на практику и инновации</p>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-text">
+                <h2 class="section-title">О нашем университете</h2>
+                <p>Московский Политех — один из ведущих технических вузов России, который готовит специалистов для высокотехнологичных отраслей промышленности. Университет сочетает в себе богатые традиции инженерного образования и современные подходы к обучению.</p>
+                <p>Основанный в 1865 году, наш вуз прошел долгий путь развития и трансформации, всегда оставаясь на передовой инженерного образования. Сегодня в университете обучается более 15 000 студентов по 120 образовательным программам.</p>
+                <p>Мы гордимся своими партнерскими отношениями с ведущими промышленными предприятиями, что позволяет нашим студентам проходить практику на современных производствах и трудоустраиваться после выпуска.</p>
+            </div>
+            </div>
+        </section>
+
+        <section id="faculties" class="faculties">
+            <h2 class="section-title">Наши факультеты</h2>
+            <div class="faculty-cards">
+                <div class="faculty-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Машиностроение">
+                    <div class="faculty-card-content">
+                        <h3>Машиностроение</h3>
+                        <p>Подготовка инженеров для автомобильной, аэрокосмической и других отраслей промышленности. Современные лаборатории и проектный подход к обучению.</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Информационные технологии">
+                    <div class="faculty-card-content">
+                        <h3>Информационные технологии</h3>
+                        <p>Программы по разработке программного обеспечения, искусственному интеллекту, кибербезопасности и data science. Тесное сотрудничество с IT-компаниями.</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Энергетика">
+                    <div class="faculty-card-content">
+                        <h3>Энергетика</h3>
+                        <p>Подготовка специалистов в области традиционной и возобновляемой энергетики. Исследования в области энергоэффективности и smart grid.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="table-section">
+            <h2 class="section-title">События и даты</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Событие</th>
+                        <th>Место проведения</th>
+                        <th>Регистрация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20.09.2025</td>
+                        <td>День открытых дверей</td>
+                        <td>Главный корпус, ауд. 101</td>
+                        <td>До 29.09</td>
+                    </tr>
+                    <tr>
+                        <td>22.09.2025</td>
+                        <td>Научная конференция "Инновации в машиностроении"</td>
+                        <td>Корпус B, конференц-зал</td>
+                        <td>До 30.09</td>
+                    </tr>
+                    <tr>
+                        <td>05.10.2025</td>
+                        <td>Начало осеннего семестра</td>
+                        <td>Все корпуса</td>
+                        <td>09.10.2025</td>
+                    </tr>
+                    <tr>
+                        <td>20.10.2025</td>
+                        <td>Хакатон по программированию</td>
+                        <td>IT-коворкинг</td>
+                        <td>До 25.10</td>
+                    </tr>
+                    <tr>
+                        <td>12.11.2025</td>
+                        <td>Олимпиада по робототехнике</td>
+                        <td>Инженерный корпус</td>
+                        <td>До 15.11</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p>📍 Москва, ул. Большая Семеновская, 38</p>
+                        <p>📞 +7 (495) 223-05-23</p>
+                        <p>✉️ info@mospolytech.ru</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Приемная комиссия</h3>
+                    <div class="contact-info">
+                        <p>📞 +7 (495) 223-05-24</p>
+                        <p>✉️ admission@mospolytech.ru</p>
+                        <p>🕒 Пн-Пт: 9:00-18:00</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="ВКонтакте">📘</a>
+                        <a href="#" aria-label="Telegram">📣</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Московский Политехнический Университет. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
